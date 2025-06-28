@@ -15,7 +15,7 @@ A smart application that detects your emotions through webcam or text input and 
   - OpenCV + Deep Learning for facial emotion recognition
   - HuggingFace NLP for text-based emotion analysis
 - **Backend**: Python
-- **UI**: Streamlit (with Flask as alternative)
+- **UI**: Streamlit 
 - **Data Storage**: JSON-based song database
 
 ## 📁 Project Structure
