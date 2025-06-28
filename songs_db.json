@@ -1,3 +1,28 @@
 {
-  "songs": []
+  "songs": [
+    {
+      "title": "Kho Gaye Hum Kahan",
+      "artist": "Jasleen Royal, Prateek Kuhad",
+      "mood": "happy",
+      "url": "https://www.youtube.com/watch?v=7Z3dZ8BqYw8"
+    },
+    {
+      "title": "Tum Jab Paas",
+      "artist": "Prateek Kuhad",
+      "mood": "happy",
+      "url": "https://www.youtube.com/watch?v=Zy5S6lC4g1o"
+    },
+    {
+      "title": "Phir Le Aaya Dil",
+      "artist": "Arijit Singh",
+      "mood": "sad",
+      "url": "https://www.youtube.com/watch?v=Q6k6YcQ6S6k"
+    },
+    {
+      "title": "Tera Yaar Hoon Main",
+      "artist": "Arijit Singh",
+      "mood": "sad",
+      "url": "https://www.youtube.com/watch?v=H3v7bPq1h3c"
+    }
+  ]
 } 

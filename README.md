@@ -2,100 +2,126 @@
 
 A smart application that detects your emotions through webcam or text input and recommends Hindi/Urdu indie songs that match your current mood.
 
-## 🎵 What it does
+---
 
-- **Emotion Detection**: Analyzes your facial expressions via webcam or processes text input to determine your emotional state
-- **Smart Recommendations**: Suggests handpicked Hindi/Urdu indie songs that align with your detected emotion
-- **Dual Input Methods**: Choose between webcam-based face emotion detection or text-based emotion analysis
-- **Curated Music Database**: Features a carefully selected collection of indie songs tagged with mood categories
+## 🚀 Current Status: Minimal Working Prototype
+
+- 🟢 **You can now enter a mood (e.g., 'happy', 'sad') and get a song recommendation!**
+- 🟢 **NEW: Song scraper that automatically fetches and categorizes songs by mood!**
+- 🟡 Webcam-based emotion detection is not yet implemented (placeholder only).
+- 🟡 Emotion detection is just based on your text input for now.
+- 🟢 Multiple moods supported: happy, sad, energetic, calm, romantic, nostalgic
+
+---
+
+## 🎵 What it does (Basic Version)
+
+- Lets you choose between text input or webcam (webcam is a placeholder)
+- Enter your mood as text (e.g., "happy", "sad", "energetic", "calm", "romantic", "nostalgic")
+- Recommends a Hindi/Urdu indie song matching your mood from the database
+- **NEW: Automatically scrapes songs from Genius API and categorizes them by lyrics sentiment**
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Emotion Detection**: 
-  - OpenCV + Deep Learning for facial emotion recognition
-  - HuggingFace NLP for text-based emotion analysis
-- **Backend**: Python
-- **UI**: Streamlit (with Flask as alternative)
-- **Data Storage**: JSON-based song database
+- **UI:** Streamlit
+- **Backend:** Python
+- **Song Database:** JSON file
+- **Song Scraping:** Genius API + Lyrics sentiment analysis
+- **HTTP Requests:** Requests library
+
+---
 
 ## 📁 Project Structure
 
 ```
-├── app.py                    # Streamlit UI
-├── emotion_detect.py         # Emotion detection functions (face + text)
-├── recommender.py            # Logic to match songs to emotions
-├── songs_db.json             # Handpicked indie songs and mood tags
+├── app.py                    # Streamlit UI (basic working prototype)
+├── emotion_detect.py         # Placeholder for emotion detection (returns text input)
+├── recommender.py            # Loads songs and recommends by mood
+├── song_scraper.py           # NEW: Scrapes songs from Genius API and categorizes by mood
+├── run_scraper.py            # NEW: Easy-to-use script to run the scraper
+├── songs_db.json             # Demo indie songs and mood tags (auto-updated by scraper)
 ├── requirements.txt          # Python package dependencies
 └── assets/
-    └── sample_images/        # Optional test images for face emotion
+    └── sample_images/        # (Unused in basic version)
 ```
-
-## 🚧 Current Status
-
-**Project Status**: 🟡 In Development
-
-- ✅ Project structure created
-- ✅ Basic file setup completed
-- 🔄 Core functionality implementation in progress
-- ⏳ Emotion detection algorithms to be implemented
-- ⏳ Song recommendation logic to be developed
-- ⏳ Streamlit UI to be built
-- ⏳ Song database to be populated
-
-## 🚀 Planned Setup Instructions
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd Moodbasedsongrecommender
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the application**
-   ```bash
-   streamlit run app.py
-   ```
-
-## 🎯 Intended Features
-
-- **Real-time Emotion Detection**: Uses your webcam to analyze facial expressions
-- **Text-based Emotion Analysis**: Input your feelings as text for song recommendations
-- **Mood-based Song Matching**: Intelligent algorithm to match songs with emotions
-- **Hindi/Urdu Indie Focus**: Curated collection of independent music
-- **User-friendly Interface**: Clean and intuitive Streamlit interface
-
-## 🎼 Planned Emotion Support
-
-The system will recognize various emotional states including:
-- Happy/Joyful
-- Sad/Melancholic
-- Energetic/Excited
-- Calm/Peaceful
-- Romantic/Loving
-- Nostalgic/Reflective
-
-## 📝 Intended Usage
-
-1. **Webcam Mode**: Allow camera access and let the app detect your facial expression
-2. **Text Mode**: Describe your current mood or feelings in text
-3. **Get Recommendations**: Receive personalized song suggestions based on your emotion
-4. **Explore Music**: Discover new Hindi/Urdu indie artists and songs
-
-## 🔄 Development Roadmap
-
-- [ ] Implement emotion detection using OpenCV and deep learning models
-- [ ] Add text-based emotion analysis using HuggingFace NLP
-- [ ] Create song recommendation algorithm
-- [ ] Build Streamlit user interface
-- [ ] Populate songs database with Hindi/Urdu indie songs
-- [ ] Add mood tagging system
-- [ ] Test and optimize the application
-- [ ] Deploy and launch
 
 ---
 
-**Note**: This project is currently in development. The emotion detection will be designed for entertainment purposes and should not be used for medical or psychological assessment.
+## 📝 How to Run the Basic App
+
+1. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. **Start the app**
+   ```bash
+   streamlit run app.py
+   ```
+3. **Usage**
+   - Select "Text" as input mode
+   - Enter your mood (try "happy", "sad", "energetic", "calm", "romantic", "nostalgic")
+   - Click "Get Recommendation" to see a song suggestion
+   - "Webcam" mode is a placeholder for future updates
+
+---
+
+## 🆕 How to Use the Song Scraper
+
+The scraper automatically fetches Hindi/Urdu indie songs from Genius API and categorizes them by analyzing lyrics sentiment.
+
+### Prerequisites
+1. **Get a Genius API token:**
+   - Go to https://genius.com/api-clients
+   - Create an account and generate an API token
+
+### Running the Scraper
+```bash
+python run_scraper.py
+```
+
+### What the Scraper Does
+1. **Searches for songs** by popular Hindi/Urdu indie artists
+2. **Fetches lyrics** from Genius.com
+3. **Analyzes sentiment** using keyword-based mood detection
+4. **Categorizes songs** into moods: happy, sad, energetic, calm, romantic, nostalgic
+5. **Updates the database** automatically, avoiding duplicates
+
+### Supported Artists (in scraper)
+- Prateek Kuhad
+- Jasleen Royal
+- Arijit Singh
+- Ritviz
+- Seedhe Maut
+- Divine
+- Naezy
+- Prabh Deep
+
+---
+
+## 💡 How it Works (Basic Version)
+- The app takes your text input as the mood (no real emotion detection yet)
+- It looks up a song with a matching mood in `songs_db.json`
+- If found, it shows you the song title, artist, and a link to listen
+- If not found, it asks you to try another mood
+
+### How the Scraper Works
+- Uses Genius API to search for songs by artist names
+- Extracts lyrics from Genius song pages using regex patterns
+- Analyzes lyrics using keyword-based sentiment analysis
+- Categorizes songs into 6 mood categories based on lyrics content
+- Automatically updates the JSON database with new songs
+
+---
+
+## 🔜 Next Steps (Planned)
+- Implement real emotion detection (webcam and NLP)
+- Improve lyrics extraction accuracy
+- Add more sophisticated sentiment analysis using HuggingFace models
+- Expand the artist list and song database
+- Improve UI and add more features
+
+---
+
+**Note:** This is a minimal working prototype for demonstration and learning purposes. The scraper respects API rate limits and includes proper error handling. More features coming soon!
